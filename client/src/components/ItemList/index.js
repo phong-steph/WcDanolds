@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import Item from "../Item";
+
 const ItemList = () => {
   const [items, setItems] = useState([]);
 
@@ -14,20 +16,15 @@ const ItemList = () => {
   }, []);
 
   return (
-    <ul>
-      {items.map((item) => {
-        return (
-          <>
-            <li>
-              <img src={item.logo} alt={item.title} />
-              <p>{item.title}</p>
-              <p>{item.description}</p>
-              <p>{item.price}</p>
-            </li>
-          </>
-        );
-      })}
-    </ul>
+    <div className="item-list">
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            <Item {...item} nb={0} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
