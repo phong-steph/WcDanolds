@@ -1,11 +1,17 @@
 const express = require("express");
 const app = express();
-
-const port = 3001;
+const cors = require("cors");
 
 const payload = require("./samples.json");
+const port = 3001;
 
-app.get("/", (req, res) => {
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+
+app.get("/items", (req, res) => {
   res.send(payload);
 });
 

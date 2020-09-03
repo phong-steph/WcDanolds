@@ -3,6 +3,7 @@ import "./App.scss";
 
 import Header from "./components/Header";
 import Banner from "./components/Banner";
+import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="container">
       <Header />
       <Banner />
+      <ItemList />
       <Footer />
     </div>
   );
