@@ -1,0 +1,110 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "BIG MAC",
+      "description": "Ses deux steaks hachés, son cheddar fondu, ses oignons, ses cornichons, son lit de salade et sa sauce inimitable, font du Big Mac un burger culte et indémodable.",
+      "price": "3.80",
+      "logo": "https://ws.mcdonalds.fr/media/f9/2a/46/f92a4620185b701485e4b69cad53d81f67e7c3b1"
+    },
+    {
+      "id": 2,
+      "title": "FILET-O-FISH",
+      "description": "Fondez pour son poisson pané croustillant et sa sauce légèrement vinaigrée aux oignons et aux câpres, le tout dans un pain cuit vapeur. Laissez-vous prendre dans ses filets !",
+      "price": "3.80",
+      "logo": "https://ws.mcdonalds.fr/media/92/98/d0/9298d0751ac047c90346b6288371b1bed28ad083"
+    },
+    {
+      "id": 3,
+      "title": "LE 280™ ORIGINAL",
+      "description": "Un pain ciabatta cuit sur pierre, un steak haché 100% pur bœuf *, de l'emmental et du cheddar fondus, des oignons frais, deux rondelles de tomates, du ketchup et une sauce légèrement citronnée.",
+      "price": "5.90",
+      "logo": "https://ws.mcdonalds.fr/media/09/0e/eb/090eeba3e36f2aeaf47e0b0a6eda8c880cae345d"
+    },
+    {
+      "id": 4,
+      "title": "McCHICKEN",
+      "description": "Notre spécialité panée au poulet, sa salade croquante et sa sauce légèrement citronnée font du McChicken un succès incontesté et surtout incontestable depuis 1980.",
+      "price": "3.70",
+      "logo": "https://ws.mcdonalds.fr/media/44/5f/b1/445fb1e49089f1364b359c673f80620244f93fc5"
+    },
+    {
+      "id": 5,
+      "title": "CHICKEN McNUGGETS",
+      "description": "Craquez pour ces nuggets croustillants, à savourer avec ou sans sauce, en famille ou entre amis, faîtes-vous plaisir !",
+      "price": "2.70",
+      "logo": "https://ws.mcdonalds.fr/media/f6/27/3d/f6273de586b57c9b63f12f1cd36c72e76461876a"
+    },
+    {
+      "id": 6,
+      "title": "HAMBURGER",
+      "description": "Un steak haché, une rondelle de cornichon, des oignons, de la moutarde douce et du ketchup, retrouvez tout l'esprit de McDonald's dans ce classique au goût inimitable.",
+      "price": "1.20",
+      "logo": "https://ws.mcdonalds.fr/media/20/d9/8a/20d98ac9a9a0ddc3d2251769d23a77ea42269145"
+    },
+    {
+      "id": 7,
+      "title": "CHEESEBURGER",
+      "description": "Un steak haché, une tranche de cheddar fondu, une rondelle de cornichon, des oignons, du ketchup et de la moutarde douce dans un pain classique : fondez pour son goût unique et emblématique.",
+      "price": "1.60",
+      "logo": "https://ws.mcdonalds.fr/media/bf/b3/95/bfb395a2d5f07fce709a1ad84ad3496e03484c35"
+    },
+    {
+      "id": 8,
+      "title": "DOUBLE CHEESE",
+      "description": "Un goût culte : 2 steaks hachés cuits au grill, 2 tranches de cheddar fondu, 2 sauces ketchup et moutarde… 2 fois plus de plaisir !",
+      "price": "2.60",
+      "logo": "https://ws.mcdonalds.fr/media/6c/7a/75/6c7a7522998d2337713e844c49c07c01bd388ae0"
+    },
+    {
+      "id": 9,
+      "title": "LE CHICKEN BIG™ TASTY",
+      "description": "Succombez à la gourmandise du Chicken Big Tasty™: du poulet croustillant*, trois tranches d'emmental fondu, deux rondelles de tomate, des oignons frais, de la salade et une délicieuse sauce au goût grillé.",
+      "price": "5.90",
+      "logo": "https://ws.mcdonalds.fr/media/7c/c5/d5/7cc5d5f5be00ddc5de5649a4f03c38b791683cf2"
+    },
+    {
+      "id": 10,
+      "title": "ROYAL BACON",
+      "description": "Avec son bacon croustillant, son steak haché et son pain aux graines de sésame, il vous offre une recette savoureuse et gourmande. Pain spécial, steak haché, bacon, fromage fondu, cornichon, oignon, moutarde, ketchup.",
+      "price": "3.80",
+      "logo": "https://ws.mcdonalds.fr/media/01/99/3d/01993d7fbe5210bd7e934ad1f2083cc52f99e123"
+    },
+    {
+      "id": 11,
+      "title": "ROYAL DELUXE",
+      "description": "Craquez pour un savoureux steak haché avec du cheddar fondu, de la salade croquante et des oignons frais, le tout accompagné d'une délicieuse sauce à la moutarde à l'ancienne qui lui donne son goût si original.",
+      "price": "3.80",
+      "logo": "https://ws.mcdonalds.fr/media/6a/f9/f7/6af9f741535fb9424fd179b7244d270c380120fe"
+    },
+    {
+      "id": 12,
+      "title": "McWRAP",
+      "description": "Deux chèvres croustillants et chauds, une sauce onctueuse, des oignons frits, des rondelles de tomates, de la salade, le tout enveloppé dans une galette de blé.",
+      "price": "4.80",
+      "logo": "https://ws.mcdonalds.fr/media/0c/b1/8b/0cb18b01c7a9be164a4f66f114484e0a632ec22c"
+    },
+    {
+      "id": 13,
+      "title": "P’TIT WRAP",
+      "description": "Du chèvre pané, des oignons frits croustillants accompagnés d'une tranche de tomate et de la salade avec une sauce ranch onctueuse, le tout enveloppé dans une galette de blé.",
+      "price": "1.95",
+      "logo": "https://ws.mcdonalds.fr/media/ec/5a/25/ec5a2564cc8ae073abe0cffcbef57026b754db22"
+    },
+    {
+      "id": 14,
+      "title": "CBO",
+      "description": "Pain spécial aux éclats de bacon, spécialité panée au poulet, bacon, fromage fondu goût bacon au poivre, oignons préparés et frits, salade, sauce",
+      "price": "4.70",
+      "logo": "https://ws.mcdonalds.fr/media/ab/cb/ed/abcbed77c36ac597606790bde44617096145acba"
+    },
+    {
+      "id": 15,
+      "title": "McFISH",
+      "description": "Caché au fond du Happy Meal, le McFish gagne à être connu : un pain lisse autour d'un poisson pané délicieusement croustillant et un peu de ketchup. Idéal pour s'initier au poisson !",
+      "price": "3.50",
+      "logo": "https://ws.mcdonalds.fr/media/c4/9d/7d/c49d7d2d56ff7618d52150da6578bbf17df5a174"
+    }
+  ],
+  "totalCount": 15
+}
