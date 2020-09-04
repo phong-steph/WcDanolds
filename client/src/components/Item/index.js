@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useDispatch } from "react-redux";
 
@@ -10,6 +10,11 @@ const Item = (props) => {
   const [toggleRemove, setToggleRemove] = useState(false);
   const dispatch = useDispatch();
 
+  // /!\ Hack
+  // mouseCoord is used to prevent onClick handler while swiping
+  // See https://github.com/oliviertassinari/react-swipeable-views/issues/347#issuecomment-640446980
+  const mouseCoord = useRef({ x: 0 });
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => {
       setToggleRemove(false);
@@ -17,16 +22,25 @@ const Item = (props) => {
     onSwipedRight: () => {
       if (props.cardNbItems > 0) setToggleRemove(true);
     },
+    delta: 0,
     trackMouse: true,
   });
 
-  const handleItemClick = (item) => {
-    dispatch(addItem(item));
+  const handleMouseDown = (e) => {
+    mouseCoord.current.x = e.screenX;
+  };
+
+  const handleItemClick = (e) => {
+    const delta = Math.abs(e.screenX - mouseCoord.current.x);
+
+    if (delta < 10) {
+      dispatch(addItem(props));
+    }
   };
 
   const handleRemoveClick = useCallback(() => {
     dispatch(removeItem(props.id));
-  }, [props.id]);
+  }, [props.id, dispatch]);
 
   return (
     <div
@@ -41,7 +55,8 @@ const Item = (props) => {
 
       <div
         className="d-flex flex-row align-items-center"
-        onClick={() => handleItemClick(props)}
+        onClick={handleItemClick}
+        onMouseDown={handleMouseDown}
       >
         <img src={props.logo} alt={props.title} />
         <div className="d-flex flex-column info">

@@ -6,7 +6,6 @@ import Item from "../Item";
 const ItemList = () => {
   const [items, setItems] = useState([]);
   const cardItems = useSelector((state) => state.itemsReducer);
-  console.log(cardItems);
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch("/items");
