@@ -33,7 +33,7 @@ const Item = (props) => {
           <p>{props.description}</p>
         </div>
       </div>
-      <div className="item-nb">{props.nb}</div>
+      <div className="item-nb">{props.cardNbItems}</div>
     </div>
   );
 };
