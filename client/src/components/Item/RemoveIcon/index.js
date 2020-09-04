@@ -1,9 +1,13 @@
 import React from "react";
 
 const RemoveIcon = (props) => {
+  const handleClick = () => {
+    props.setToggleRemove(false);
+    props.handleRemoveClick();
+  };
   return (
     <div className={`remove-icon ${props.toggle ? "open" : ""}`}>
-      <button type="button" onClick={() => props.setToggleRemove(false)}>
+      <button type="button" onClick={handleClick}>
         {/* Source: https://icons.getbootstrap.com/icons/trash/ */}
         <svg
           width="2em"

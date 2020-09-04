@@ -6,18 +6,24 @@ const itemsSlice = createSlice({
   name: "items",
   initialState,
   reducers: {
-    itemAdded(state, action) {
+    addItem(state, action) {
       const { id } = action.payload;
-      const existingItem = state.find((item) => item.id === id);
-      if (existingItem) {
-        existingItem.nbItems += 1;
+      const foundItem = state.find((item) => item.id === id);
+      if (foundItem) {
+        foundItem.nbItems += 1;
       } else {
         state.push({ ...action.payload, nbItems: 1 });
       }
     },
+    removeItem(state, action) {
+      const foundItemIndex = state.findIndex(
+        (item) => item.id === action.payload
+      );
+      state = state.splice(foundItemIndex, 1);
+    },
   },
 });
 
-export const { itemAdded } = itemsSlice.actions;
+export const { addItem, removeItem } = itemsSlice.actions;
 
 export default itemsSlice.reducer;

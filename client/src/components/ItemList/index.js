@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-
-import { itemAdded } from "../../containers/itemsSlice";
+import { useSelector } from "react-redux";
 
 import Item from "../Item";
 
 const ItemList = () => {
   const [items, setItems] = useState([]);
-  const dispatch = useDispatch();
   const cardItems = useSelector((state) => state.itemsReducer);
-
+  console.log(cardItems);
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch("/items");
@@ -19,10 +16,6 @@ const ItemList = () => {
 
     fetchItems();
   }, []);
-
-  const handleItemClick = (item) => {
-    dispatch(itemAdded(item));
-  };
 
   return (
     <div className="item-list">
@@ -34,7 +27,7 @@ const ItemList = () => {
           );
           if (foundItem) cardNbItems = foundItem.nbItems;
           return (
-            <li key={item.id} onClick={() => handleItemClick(item)}>
+            <li key={item.id}>
               <Item {...item} cardNbItems={cardNbItems} />
             </li>
           );
