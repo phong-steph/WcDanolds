@@ -1,6 +1,19 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+@import "./components/Header/style.scss";
 @import "./components/Banner/style.scss";
 @import "./components/ItemList/style.scss";
 @import "./components/Item/style.scss";
 @import "./components/Item/RemoveIcon/style.scss";
+
+// Macdonalds red color
+$red: #db0507;
+
+.container {
+  // Header height = 80px
+  margin-top: 95px;
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 80px;
+  }
+}

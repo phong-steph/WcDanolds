@@ -1,0 +1,29 @@
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: $white;
+  background-color: #db0507;
+  z-index: 999;
+  padding: 1rem;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  img {
+    width: 35px;
+    margin-right: 20px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    img {
+      width: 25px;
+    }
+  }
+}
