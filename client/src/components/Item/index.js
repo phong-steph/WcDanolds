@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useDispatch } from "react-redux";
 
-import { addItem, removeItem } from "../../containers/itemsSlice";
+import { addItem, removeItem } from "../../containers/cartSlice";
 
 import RemoveIcon from "./RemoveIcon";
 
@@ -20,7 +20,7 @@ const Item = (props) => {
       setToggleRemove(false);
     },
     onSwipedRight: () => {
-      if (props.cardNbItems > 0) setToggleRemove(true);
+      if (props.cartNbItems > 0) setToggleRemove(true);
     },
     delta: 0,
     trackMouse: true,
@@ -67,7 +67,7 @@ const Item = (props) => {
           <p>{props.description}</p>
         </div>
       </div>
-      <div className="item-nb">{props.cardNbItems}</div>
+      <div className="item-nb">{props.cartNbItems}</div>
     </div>
   );
 };

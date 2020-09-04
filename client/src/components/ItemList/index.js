@@ -5,7 +5,7 @@ import Item from "../Item";
 
 const ItemList = () => {
   const [items, setItems] = useState([]);
-  const cardItems = useSelector((state) => state.itemsReducer);
+  const cartItems = useSelector((state) => state.cartReducer);
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch("/items");
@@ -20,14 +20,14 @@ const ItemList = () => {
     <div className="item-list">
       <ul>
         {items.map((item) => {
-          let cardNbItems = 0;
-          const foundItem = cardItems.find(
-            (cardItem) => item.id === cardItem.id
+          let cartNbItems = 0;
+          const foundItem = cartItems.find(
+            (cartItem) => item.id === cartItem.id
           );
-          if (foundItem) cardNbItems = foundItem.nbItems;
+          if (foundItem) cartNbItems = foundItem.nbItems;
           return (
             <li key={item.id}>
-              <Item {...item} cardNbItems={cardNbItems} />
+              <Item {...item} cartNbItems={cartNbItems} />
             </li>
           );
         })}
