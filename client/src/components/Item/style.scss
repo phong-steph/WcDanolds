@@ -1,10 +1,16 @@
+$logo-size: 150px;
+$logo-size-sm: 125px;
+
 .item {
   border: 1px solid $gray-200;
   border-bottom: none;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
 
   img {
-    width: 150px;
-    height: 150px;
+    width: $logo-size;
+    height: $logo-size;
     padding: 0 10px;
   }
 
@@ -23,8 +29,8 @@
     flex-wrap: wrap;
 
     img {
-      width: 125px;
-      height: 125px;
+      width: $logo-size-sm;
+      height: $logo-size-sm;
     }
 
     .info {

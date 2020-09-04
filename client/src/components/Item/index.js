@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSwipeable } from "react-swipeable";
+
+import RemoveIcon from "./RemoveIcon";
 
 const Item = (props) => {
+  const [toggleRemove, setToggleRemove] = useState(false);
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => {
+      setToggleRemove(false);
+    },
+    onSwipedRight: () => {
+      setToggleRemove(true);
+    },
+    trackMouse: true,
+  });
+
   return (
-    <div className="d-flex flex-row item align-items-center justify-content-between">
+    <div
+      className="d-flex flex-row item align-items-center justify-content-between"
+      {...swipeHandlers}
+    >
+      <RemoveIcon toggle={toggleRemove} setToggleRemove={setToggleRemove} />
+
       <div className="d-flex flex-row align-items-center">
         <img src={props.logo} alt={props.title} />
         <div className="d-flex flex-column info">

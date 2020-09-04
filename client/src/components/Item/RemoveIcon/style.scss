@@ -1,0 +1,34 @@
+.remove-icon {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  opacity: 0;
+  transition: all 0.5s ease;
+  background-color: $red;
+
+  button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+
+    svg {
+      fill: $white;
+    }
+  }
+
+  button:focus {
+    outline: none;
+  }
+}
+
+.open {
+  opacity: 1;
+  width: $logo-size;
+}
+
+@include media-breakpoint-down(sm) {
+  .open {
+    width: $logo-size-sm;
+  }
+}
