@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-export const Footer = () => {
+export const Footer = (props) => {
   const cart = useSelector((state) => state.cartReducer);
 
   return (
@@ -22,7 +22,12 @@ export const Footer = () => {
             </ul>
             <div className="d-flex flex-column">
               <p>TOTAL: {cart.total.toFixed(2)}€</p>
-              <button className="btn btn-primary btn-lg">PAYER</button>
+              <button
+                onClick={props.onPurchaseClick}
+                className="btn btn-primary btn-lg"
+              >
+                PAYER
+              </button>
             </div>
           </div>
         </div>

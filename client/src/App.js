@@ -1,10 +1,13 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { emptyCart } from "./containers/cartSlice";
 
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import ItemList from "./components/ItemList";
 import Footer from "./components/Footer";
+
 import "./App.scss";
 
 function App() {
@@ -13,6 +16,12 @@ function App() {
   const cartItems = useSelector((state) => state.cartReducer.items);
   const footerMargin = cartItems.length > 0 ? " footer-margin" : "";
 
+  const dispatch = useDispatch();
+
+  const handlePurchaseClick = () => {
+    dispatch(emptyCart());
+  };
+
   return (
     <>
       <Header />
@@ -20,7 +29,7 @@ function App() {
         <Banner />
         <ItemList />
       </div>
-      <Footer />
+      <Footer onPurchaseClick={handlePurchaseClick} />
     </>
   );
 }
