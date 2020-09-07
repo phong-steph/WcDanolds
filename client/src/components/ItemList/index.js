@@ -5,7 +5,8 @@ import Item from "../Item";
 
 const ItemList = () => {
   const [items, setItems] = useState([]);
-  const cartItems = useSelector((state) => state.cartReducer);
+  const cartItems = useSelector((state) => state.cartReducer.items);
+
   useEffect(() => {
     const fetchItems = async () => {
       const response = await fetch("/items");

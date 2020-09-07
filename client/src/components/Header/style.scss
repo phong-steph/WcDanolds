@@ -1,5 +1,9 @@
+$header-height: 80px;
+$header-height-sm: 58px;
+
 header {
   width: 100%;
+  height: $header-height;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,8 +22,10 @@ header {
   }
 
   @include media-breakpoint-down(sm) {
+    height: $header-height-sm;
+
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
     }
 
     img {

@@ -1,3 +1,7 @@
+// Macdonalds colors
+$red: #db0507;
+$green: #0e4413;
+
 @import "~bootstrap/scss/bootstrap.scss";
 
 @import "./components/Header/style.scss";
@@ -5,15 +9,16 @@
 @import "./components/ItemList/style.scss";
 @import "./components/Item/style.scss";
 @import "./components/Item/RemoveIcon/style.scss";
-
-// Macdonalds red color
-$red: #db0507;
+@import "./components/Footer/style.scss";
 
 .container {
-  // Header height = 80px
-  margin-top: 95px;
+  margin-top: $header-height + 20px;
 
   @include media-breakpoint-down(sm) {
-    margin-top: 80px;
+    margin-top: $header-height-sm + 20px;
   }
+}
+
+.footer-margin {
+  margin-bottom: $footer-height + 20px;
 }

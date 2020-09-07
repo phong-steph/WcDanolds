@@ -62,7 +62,7 @@ const Item = (props) => {
         <div className="d-flex flex-column info">
           <div className="d-flex flex-row justify-content-between mb-2">
             <h5>{props.title}</h5>
-            <span>{props.price}‎€</span>
+            <span>{props.price.toFixed(2)}‎€</span>
           </div>
           <p>{props.description}</p>
         </div>
