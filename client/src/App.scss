@@ -12,13 +12,5 @@ $green: #0e4413;
 @import "./components/Footer/style.scss";
 
 .container {
-  margin-top: $header-height + 20px;
-
-  @include media-breakpoint-down(sm) {
-    margin-top: $header-height-sm + 20px;
-  }
-}
-
-.footer-margin {
-  margin-bottom: $footer-height + 20px;
+  margin: 20px auto;
 }

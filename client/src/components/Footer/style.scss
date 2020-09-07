@@ -1,19 +1,14 @@
 $footer-height: 200px;
 
 footer {
-  position: fixed;
-  width: 100%;
-  height: $footer-height;
+  position: sticky;
+  padding: 20px 0;
   background-color: $green;
+  height: $footer-height;
   bottom: 0;
   color: $white;
-  padding: 1rem;
   overflow-y: auto;
   font-size: 1.2rem;
-
-  .container {
-    margin: 0 auto;
-  }
 
   h3 {
     text-align: center;
@@ -24,6 +19,10 @@ footer {
     width: 40%;
     padding: 0 20px;
     list-style: none;
+  }
+
+  .container {
+    margin: 0 auto;
   }
 
   @include media-breakpoint-down(sm) {

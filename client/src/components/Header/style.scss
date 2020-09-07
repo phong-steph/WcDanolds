@@ -4,7 +4,7 @@ $header-height-sm: 58px;
 header {
   width: 100%;
   height: $header-height;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   color: $white;
