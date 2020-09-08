@@ -8,7 +8,6 @@ export const Footer = (props) => {
     cart.items.length > 0 && (
       <footer>
         <div className="container">
-          <h3>Panier</h3>
           <div className="d-flex flex-row justify-content-around">
             <ul>
               {cart.items.map((item) => (
@@ -24,7 +23,7 @@ export const Footer = (props) => {
               <p>TOTAL: {cart.total.toFixed(2)}€</p>
               <button
                 onClick={props.onPurchaseClick}
-                className="btn btn-primary btn-lg"
+                className="btn btn-primary"
               >
                 PAYER
               </button>

@@ -60,10 +60,8 @@ const Item = (props) => {
       >
         <img src={props.logo} alt={props.title} />
         <div className="d-flex flex-column info">
-          <div className="d-flex flex-row justify-content-between mb-2">
-            <h5>{props.title}</h5>
-            <span>{props.price.toFixed(2)}‎€</span>
-          </div>
+          <h5>{props.title}</h5>
+          <p>{props.price.toFixed(2)}‎€</p>
           <p>{props.description}</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-$footer-height: 200px;
+$footer-height: 150px;
 
 footer {
   position: sticky;
@@ -9,11 +9,6 @@ footer {
   color: $white;
   overflow-y: auto;
   font-size: 1.2rem;
-
-  h3 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
 
   ul {
     width: 40%;

@@ -19,10 +19,12 @@ app.get("/items", (req, res) => {
     for (let i = 0; i < limit; i++) {
       items.push(payload.items[i]);
     }
-    res.status(200).send({
-      items,
-      totalCount: payload.totalCount,
-    });
+    setTimeout(() => {
+      res.status(200).send({
+        items,
+        totalCount: payload.totalCount,
+      });
+    }, 2000);
   } catch (error) {
     res.status(500).send("Internal error");
   }

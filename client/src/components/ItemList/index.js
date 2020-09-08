@@ -1,25 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
+import { animateScroll } from "react-scroll";
 
 import Item from "../Item";
 import Spinner from "../Spinner";
+import { detectScrollBottom } from "../../utils/scroll";
 
 const ItemList = () => {
+  const nbItemsPerRequest = 3;
   const [loading, setLoading] = useState(true);
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(nbItemsPerRequest);
   const [items, setItems] = useState([]);
+  const [totalItems, setTotalItems] = useState(0);
   const cartItems = useSelector((state) => state.cartReducer.items);
 
   useEffect(() => {
+    setLoading(true);
+    // Trick
+    // Scroll down 50px to display spinner
+    animateScroll.scrollMore(50, { duration: 500 });
+
     const fetchItems = async () => {
-      const response = await fetch(`/items?limit=${limit}`);
-      const json = await response.json();
-      setItems(json.items);
+      try {
+        const response = await fetch(`/items?limit=${limit}`);
+        const json = await response.json();
+        setTotalItems(json.totalCount);
+        setItems(json.items);
+      } catch (error) {
+        // do something
+      }
       setLoading(false);
     };
 
     fetchItems();
-  }, []);
+  }, [limit]);
+
+  const handleScroll = useCallback(() => {
+    // Use a tick to avoid triggering fetchItems too often
+    setTimeout(() => {
+      if (detectScrollBottom()) {
+        let delta = nbItemsPerRequest;
+        if (totalItems <= limit) delta = 0;
+        setLimit(limit + delta);
+      }
+    }, 1000);
+  }, [limit, totalItems]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [limit, totalItems, handleScroll]);
 
   return (
     <div className="item-list">
