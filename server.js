@@ -12,7 +12,20 @@ app.use(
 );
 
 app.get("/items", (req, res) => {
-  res.send(payload);
+  try {
+    const { limit } = req.query;
+    const items = [];
+
+    for (let i = 0; i < limit; i++) {
+      items.push(payload.items[i]);
+    }
+    res.status(200).send({
+      items,
+      totalCount: payload.totalCount,
+    });
+  } catch (error) {
+    res.status(500).send("Internal error");
+  }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
