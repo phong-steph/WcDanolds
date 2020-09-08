@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import Item from "../Item";
+import Spinner from "../Spinner";
 
 const ItemList = () => {
+  const [loading, setLoading] = useState(true);
+  const [limit, setLimit] = useState(5);
   const [items, setItems] = useState([]);
   const cartItems = useSelector((state) => state.cartReducer.items);
 
   useEffect(() => {
     const fetchItems = async () => {
-      const response = await fetch("/items");
+      const response = await fetch(`/items?limit=${limit}`);
       const json = await response.json();
       setItems(json.items);
+      setLoading(false);
     };
 
     fetchItems();
@@ -33,6 +37,7 @@ const ItemList = () => {
           );
         })}
       </ul>
+      <Spinner loading={loading} />
     </div>
   );
 };
