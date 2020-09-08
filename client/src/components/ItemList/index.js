@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { animateScroll } from "react-scroll";
+import _ from "lodash";
 
 import Item from "../Item";
 import Spinner from "../Spinner";
@@ -17,8 +18,8 @@ const ItemList = () => {
   useEffect(() => {
     setLoading(true);
     // Trick
-    // Scroll down 50px to display spinner
-    animateScroll.scrollMore(50, { duration: 500 });
+    // Scroll down to display spinner
+    animateScroll.scrollMore(40, { duration: 500 });
 
     const fetchItems = async () => {
       try {
@@ -35,16 +36,16 @@ const ItemList = () => {
     fetchItems();
   }, [limit]);
 
-  const handleScroll = useCallback(() => {
-    // Use a tick to avoid triggering fetchItems too often
-    setTimeout(() => {
+  const handleScroll = useCallback(
+    _.debounce(() => {
       if (detectScrollBottom()) {
         let delta = nbItemsPerRequest;
         if (totalItems <= limit) delta = 0;
         setLimit(limit + delta);
       }
-    }, 1000);
-  }, [limit, totalItems]);
+    }, 500),
+    [limit, totalItems]
+  );
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
