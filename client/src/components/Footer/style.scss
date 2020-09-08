@@ -1,14 +1,22 @@
 $footer-height: 150px;
 
 footer {
+  height: 0;
   position: sticky;
   padding: 20px 0;
   background-color: $green;
-  height: $footer-height;
   bottom: 0;
   color: $white;
   overflow-y: auto;
   font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  &.show {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    height: $footer-height;
+  }
 
   ul {
     width: 40%;

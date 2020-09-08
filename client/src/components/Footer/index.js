@@ -3,35 +3,33 @@ import { useSelector } from "react-redux";
 
 export const Footer = (props) => {
   const cart = useSelector((state) => state.cartReducer);
-
+  let visible = "";
+  if (cart.items.length > 0) {
+    visible = "show";
+  }
   return (
-    cart.items.length > 0 && (
-      <footer>
-        <div className="container">
-          <div className="d-flex flex-row justify-content-around">
-            <ul>
-              {cart.items.map((item) => (
-                <li key={item.id}>
-                  <div className="d-flex flex-row justify-content-between">
-                    <p>{item.nbItems}</p>
-                    <p>{item.title}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <div className="d-flex flex-column">
-              <p>TOTAL: {cart.total.toFixed(2)}€</p>
-              <button
-                onClick={props.onPurchaseClick}
-                className="btn btn-primary"
-              >
-                PAYER
-              </button>
-            </div>
+    <footer className={visible}>
+      <div className="container">
+        <div className="d-flex flex-row justify-content-around">
+          <ul>
+            {cart.items.map((item) => (
+              <li key={item.id}>
+                <div className="d-flex flex-row justify-content-between">
+                  <p className="text-left">{item.nbItems}</p>
+                  <p className="text-right">{item.title}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="d-flex flex-column">
+            <p>TOTAL: {cart.total.toFixed(2)}€</p>
+            <button onClick={props.onPurchaseClick} className="btn btn-primary">
+              PAYER
+            </button>
           </div>
         </div>
-      </footer>
-    )
+      </div>
+    </footer>
   );
 };
 
