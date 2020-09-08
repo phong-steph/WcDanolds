@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { animateScroll } from "react-scroll";
 import _ from "lodash";
 
-import Item from "../Item";
+import Item from "./Item";
 import Spinner from "../Spinner";
 import { detectScrollBottom } from "../../utils/scroll";
 

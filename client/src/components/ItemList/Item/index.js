@@ -2,7 +2,7 @@ import React, { useState, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useDispatch } from "react-redux";
 
-import { addItem, removeItem } from "../../containers/cartSlice";
+import { addItem, removeItem } from "../../../containers/cartSlice";
 
 import RemoveIcon from "./RemoveIcon";
 
