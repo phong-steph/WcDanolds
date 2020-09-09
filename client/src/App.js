@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { emptyCart } from "./containers/cartSlice";
+import { emptyCart } from "./reducers/cartSlice";
 
 import Header from "./components/Header";
 import Alert from "./components/Alert";

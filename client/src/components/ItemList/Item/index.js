@@ -3,7 +3,7 @@ import { useSwipeable } from "react-swipeable";
 import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 
-import { addItem, removeItem } from "../../../containers/cartSlice";
+import { addItem, removeItem } from "../../../reducers/cartSlice";
 
 import RemoveIcon from "./RemoveIcon";
 
