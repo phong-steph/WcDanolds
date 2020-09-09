@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
 import { animateScroll } from "react-scroll";
 import _ from "lodash";
 
@@ -13,7 +12,6 @@ const ItemList = () => {
   const [limit, setLimit] = useState(nbItemsPerRequest);
   const [items, setItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
-  const cartItems = useSelector((state) => state.cartReducer.items);
 
   useEffect(() => {
     setLoading(true);
@@ -52,22 +50,17 @@ const ItemList = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [limit, totalItems, handleScroll]);
 
+  const renderItems = () => {
+    return items.map((item) => (
+      <li key={item.id}>
+        <Item {...item} />
+      </li>
+    ));
+  };
+
   return (
     <div className="item-list">
-      <ul>
-        {items.map((item) => {
-          let cartNbItems = 0;
-          const foundItem = cartItems.find(
-            (cartItem) => item.id === cartItem.id
-          );
-          if (foundItem) cartNbItems = foundItem.nbItems;
-          return (
-            <li key={item.id}>
-              <Item {...item} cartNbItems={cartNbItems} />
-            </li>
-          );
-        })}
-      </ul>
+      <ul>{renderItems()}</ul>
       <Spinner loading={loading} />
     </div>
   );

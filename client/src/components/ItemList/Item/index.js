@@ -1,14 +1,22 @@
 import React, { useState, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { addItem, removeItem } from "../../../containers/cartSlice";
 
 import RemoveIcon from "./RemoveIcon";
 
 const Item = (props) => {
-  const [toggleRemove, setToggleRemove] = useState(false);
   const dispatch = useDispatch();
+  const [toggleRemove, setToggleRemove] = useState(false);
+
+  const cartItemNb = useSelector((state) => {
+    const foundItem = state.cartReducer.items.find(
+      (item) => props.id === item.id
+    );
+    if (foundItem) return foundItem.nbItems;
+    return 0;
+  });
 
   // /!\ Hack
   // mouseCoord is used to prevent onClick handler while swiping
@@ -20,7 +28,7 @@ const Item = (props) => {
       setToggleRemove(false);
     },
     onSwipedRight: () => {
-      if (props.cartNbItems > 0) setToggleRemove(true);
+      if (cartItemNb) setToggleRemove(true);
     },
     delta: 0,
     trackMouse: true,
@@ -65,7 +73,7 @@ const Item = (props) => {
           <p>{props.description}</p>
         </div>
       </div>
-      <div className="item-nb">{props.cartNbItems}</div>
+      <div className="item-nb">{cartItemNb}</div>
     </div>
   );
 };
