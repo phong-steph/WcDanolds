@@ -8,6 +8,8 @@ import { addItem, removeItem } from "../../../reducers/cartSlice";
 import RemoveIcon from "./RemoveIcon";
 
 const Item = (props) => {
+  const maxSwipedDelta = 10;
+
   const dispatch = useDispatch();
   const [toggleRemove, setToggleRemove] = useState(false);
 
@@ -31,7 +33,6 @@ const Item = (props) => {
     onSwipedRight: () => {
       if (cartItemNb) setToggleRemove(true);
     },
-    delta: 0,
     trackMouse: true,
   });
 
@@ -42,7 +43,7 @@ const Item = (props) => {
   const handleItemClick = (e) => {
     const delta = Math.abs(e.screenX - mouseCoord.current.x);
 
-    if (delta < 10) {
+    if (delta < maxSwipedDelta) {
       dispatch(addItem(props));
     }
   };

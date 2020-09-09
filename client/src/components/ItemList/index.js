@@ -8,6 +8,9 @@ import { detectScrollBottom } from "../../utils/scroll";
 
 const ItemList = () => {
   const nbItemsPerRequest = 3;
+  const animationDuration = 500;
+  const ScrollYThreshold = 40;
+
   const [loading, setLoading] = useState(true);
   const [limit, setLimit] = useState(nbItemsPerRequest);
   const [items, setItems] = useState([]);
@@ -17,7 +20,7 @@ const ItemList = () => {
     setLoading(true);
     // Trick
     // Scroll down to display spinner
-    animateScroll.scrollMore(40, { duration: 500 });
+    animateScroll.scrollMore(ScrollYThreshold, { duration: animationDuration });
 
     const fetchItems = async () => {
       try {
