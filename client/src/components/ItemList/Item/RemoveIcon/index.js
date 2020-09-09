@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const RemoveIcon = (props) => {
   const handleClick = () => {
@@ -22,6 +23,11 @@ const RemoveIcon = (props) => {
       </button>
     </div>
   );
+};
+
+RemoveIcon.propTypes = {
+  setToggleRemove: PropTypes.func.isRequired,
+  handleRemoveClick: PropTypes.func.isRequired,
 };
 
 export default RemoveIcon;

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
 export const Footer = (props) => {
   const cart = useSelector((state) => state.cartReducer);
@@ -31,6 +32,10 @@ export const Footer = (props) => {
       </div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  onPurchaseClick: PropTypes.func.isRequired,
 };
 
 export default Footer;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Spinner as RBSpinner } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 const Spinner = (props) => {
   return (
@@ -11,6 +12,10 @@ const Spinner = (props) => {
       </div>
     )
   );
+};
+
+Spinner.propTypes = {
+  loading: PropTypes.bool.isRequired,
 };
 
 export default Spinner;

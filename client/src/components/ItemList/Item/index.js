@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import { useSelector, useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 
 import { addItem, removeItem } from "../../../containers/cartSlice";
 
@@ -76,6 +77,14 @@ const Item = (props) => {
       <div className="item-nb">{cartItemNb}</div>
     </div>
   );
+};
+
+Item.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  logo: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default Item;

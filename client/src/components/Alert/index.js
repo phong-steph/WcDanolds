@@ -1,5 +1,6 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 const Alert = (props) => {
   if (!props.show) return null;
@@ -24,6 +25,11 @@ const Alert = (props) => {
       </Modal>
     </>
   );
+};
+
+Alert.propTypes = {
+  show: PropTypes.bool.isRequired,
+  closeAlert: PropTypes.func.isRequired,
 };
 
 export default Alert;
