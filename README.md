@@ -20,3 +20,7 @@ You will also see any lint errors in the console.
 
 Runs the app in the production mode.<br />
 Client: [http://localhost:3001](http://localhost:3001) to view it in the browser.<br />
+
+### `[yarn | npm] run test`
+
+Runs client unit tests
