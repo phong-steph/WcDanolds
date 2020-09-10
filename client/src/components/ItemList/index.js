@@ -17,24 +17,34 @@ const ItemList = () => {
   const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     setLoading(true);
     // Trick
     // Scroll down to display spinner
-    animateScroll.scrollMore(ScrollYThreshold, { duration: animationDuration });
+    animateScroll.scrollMore(ScrollYThreshold, {
+      duration: animationDuration,
+    });
 
     const fetchItems = async () => {
       try {
-        const response = await fetch(`/items?limit=${limit}`);
+        const response = await fetch(`/items?limit=${limit}`, {
+          signal: abortController.signal,
+        });
         const json = await response.json();
+
         setTotalItems(json.totalCount);
         setItems(json.items);
       } catch (error) {
-        // do something
+        console.assert(true, error);
       }
       setLoading(false);
     };
-
     fetchItems();
+
+    return () => {
+      abortController.abort();
+    };
   }, [limit]);
 
   const handleScroll = useCallback(
@@ -51,7 +61,7 @@ const ItemList = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [limit, totalItems, handleScroll]);
+  }, [handleScroll]);
 
   const renderItems = () => {
     return items.map((item) => (
